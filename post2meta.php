@@ -35,7 +35,7 @@ function cross_post($postid) {
     $struct['title'] = $post->post_title;
     $struct['description'] = $post->post_content.$P2M_APPEND;
 
-    $request = xmlrpc_encode_request('metaWeblog.newPost', array(0, $P2M_USERNAME, $P2M_PASSWORD, $struct, true), array('encoding' => 'UTF-8', 'escaping' => 'cdata'));
+    $request = xmlrpc_encode_request('metaWeblog.newPost', array(0, $P2M_USERNAME, $P2M_PASSWORD, $struct, $P2M_PUBLISH), array('encoding' => 'UTF-8', 'escaping' => 'cdata'));
 
     $context = stream_context_create(array('http' => array(
         'method' => "POST",
