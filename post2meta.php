@@ -44,7 +44,11 @@ function cross_post($postid) {
         $method = 'metaWeblog.editPost';
         $id = $cross_id;
     }
-    $request = xmlrpc_encode_request($method, array($id, $P2M_USERNAME, $P2M_PASSWORD, $struct, $P2M_PUBLISH), array('encoding' => 'UTF-8', 'escaping' => 'cdata'));
+    $request = xmlrpc_encode_request(
+        $method, 
+        array($id, $P2M_USERNAME, $P2M_PASSWORD, $struct, $P2M_PUBLISH), 
+        array('encoding' => 'UTF-8', 'escaping' => 'cdata')
+    );
 
     $context = stream_context_create(array('http' => array(
         'method' => "POST",
@@ -53,6 +57,7 @@ function cross_post($postid) {
     )));
 
     $file = file_get_contents($P2M_URL, false, $context);
+
     if ($id == 0) { 
         $cross_id = xmlrpc_decode($file, 'UTf-8');  //Get post id in the remote blog
         if (!xmlrpc_is_fault($cross_id)) {
