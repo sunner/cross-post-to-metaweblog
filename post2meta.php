@@ -24,10 +24,11 @@ License: GPL2
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+// Cross post when publish/edit posts
 add_action ( 'publish_post', 'cross_post' );
 
 function cross_post($postid) {
-    $origin_link = 'http://blog.sunner.cn/?p='.$postid;
+    $origin_link = get_permalink($postid);
     require('config.inc');
 
     $post = & get_post($postid);
