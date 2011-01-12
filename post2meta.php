@@ -29,7 +29,7 @@ add_action ( 'publish_post', 'cross_post' );
 
 function cross_post($postid) {
     $origin_link = get_permalink($postid);
-    require('config.inc');
+    require('config.php');
 
     $post = & get_post($postid);
 
