@@ -34,7 +34,7 @@ function cross_post($postid) {
     $post = & get_post($postid);
 
     $struct['title'] = $post->post_title;
-    $struct['description'] = wpautop($post->post_content.$P2M_APPEND);
+    $struct['description'] = wpautop($post->post_content).$P2M_APPEND;
 
     $cross_id = get_post_meta($postid, 'p2m_crossid', true);
     if (empty($cross_id)) {
