@@ -1,2 +1,14 @@
 Cross post to another blog/site through MetaWeblog API when publish post in wordpress.
 The edited post can be synced also.
+
+Installation
+============
+
+* Download .zip
+* Access http://<your.wordpress.site>/wp-admin/plugin-install.php?tab=upload
+* Upload the zip file
+* Goto /<wordpress directory/wp-content/plugins/sunner-cross-post-to-metaweblog-*/, 
+  copy config-sample.php to config.php,
+  fill MetaWeblog API parameters into config.php
+* Enable this plugin
+* Post/Edit blog as usual
