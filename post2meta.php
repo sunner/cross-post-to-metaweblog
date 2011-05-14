@@ -29,7 +29,7 @@ add_action ( 'publish_post', 'cross_post' );
 
 function cross_post($postid) {
     $origin_link = get_permalink($postid);
-    require('config.php');
+    require('p2m_config.php');
 
     $post = & get_post($postid);
 
@@ -58,7 +58,7 @@ function cross_post($postid) {
 
     $file = file_get_contents($P2M_URL, false, $context);
 
-    if ($id == 0) { 
+    if ($file != FALSE && $id == 0) { 
         $cross_id = xmlrpc_decode($file, 'UTf-8');  //Get post id in the remote blog
         if (!xmlrpc_is_fault($cross_id)) {
             add_post_meta($postid, 'p2m_crossid', $cross_id, true);

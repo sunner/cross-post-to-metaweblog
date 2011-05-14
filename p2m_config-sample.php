@@ -1,6 +1,6 @@
 <?php
 /* 
- * Edit the following data and rename the file to config.php 
+ * Edit the following data and rename the file to p2m_config.php 
  */
 $P2M_URL = 'http://domain.name/xml-rpc/';
 $P2M_USERNAME = 'username';
